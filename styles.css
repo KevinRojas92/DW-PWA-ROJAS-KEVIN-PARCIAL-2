@@ -8,6 +8,15 @@
     box-sizing: border-box;
 }
 
+html {
+    height: fit-content;
+}
+
+body {
+    height: fit-content;
+    background: linear-gradient(192.01deg, #2E0F59 0%, #090526 100%);
+}
+
 header {
     margin-top: 50px;
 }
@@ -17,7 +26,9 @@ h1 {
     width: 142px;
     height: 73px;
     margin: auto;
-    background-color: red;
+    background-image: url(img/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 form {
@@ -36,7 +47,6 @@ form input {
     border-radius: 20px;
     margin-top: 50px;
     padding-left: 20px;
-    background-color: red;
 }
 
 form input::placeholder {
@@ -45,14 +55,16 @@ form input::placeholder {
 
 main {
     margin-top: 50px;
+    padding-bottom: calc(50px + 50px);
 }
 
 ul {
     width: 88%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: red;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2%;
+    row-gap: 0.5%;
 }
 
 li {
@@ -61,11 +73,13 @@ li {
 
 a {
     width: 100%;
+    height: 18%;
     display: inline-block;
     cursor: pointer;
 }
 
 img {
     width: 100%;
+    border-radius: 10px;
     background-size: contain;
 }
