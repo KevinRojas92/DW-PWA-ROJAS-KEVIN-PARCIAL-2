@@ -37,6 +37,7 @@ form {
 }
 
 form label {
+    display: none;
     font-size: 0;
 }
 
@@ -82,4 +83,63 @@ img {
     width: 100%;
     border-radius: 10px;
     background-size: contain;
+}
+
+/* ------------------------------ HOME ------------------------------ */
+
+@media screen and (min-width: 441px) {
+    ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 700px) {
+    header {
+        margin-top: 50px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    h1 {
+        margin: 0;
+        margin-right: 50px;
+    }
+    
+    form {
+        width: 400px;
+        height: 40px;
+        margin: 0;
+    }
+    
+    form input {
+        margin-top: 0;
+    }
+
+    ul {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 1%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    form {
+        width: 500px;
+    }
+    
+    ul {
+        width: 95%;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 1%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    ul {
+        width: 95%;
+        grid-template-columns: repeat(8, 1fr);
+        column-gap: 1%;
+        row-gap: 3%;
+    }
 }
