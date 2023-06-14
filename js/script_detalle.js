@@ -9,8 +9,6 @@ window.addEventListener("load", cargarPelicula => {
     let pelicula = localStorage.getItem("busqueda");
 
     if (pelicula.length > 0) {
-        console.log("hay algo");
-    
         try {
             fetch(`http://www.omdbapi.com/?t=${pelicula}&plot=full&apikey=${apiKey}`)
             .then (datos => {
@@ -21,11 +19,12 @@ window.addEventListener("load", cargarPelicula => {
                 if (objeto.Response == "False") {
                     console.log("No hay pelicula");
                 } else {
+                    let body = document.getElementById("body");
+                    body.setAttribute("style", `background-image:url(${objeto.Poster});`);
+
                     let titulo = document.getElementById("titulo");
                     titulo.innerText = `${objeto.Title}`;
 
-                    let body = document.getElementById("body");
-                    body.setAttribute("style", `background-image:url(${objeto.Poster});`);
 
                     let intro = document.getElementById("intro");
                     intro.innerText = `${objeto.Plot}`;
@@ -36,10 +35,6 @@ window.addEventListener("load", cargarPelicula => {
                         let actores = document.getElementById("actores");
                         actores.innerHTML += `<li>${element}</li>`;
                     });
-                    
-
-                    console.log(listaActores);
-                    console.log(arrActores);
                 }
             })
         } catch (error) {
