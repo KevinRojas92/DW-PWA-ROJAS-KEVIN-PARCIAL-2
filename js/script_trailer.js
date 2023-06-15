@@ -5,13 +5,12 @@
 const apiKey = "6fe29fd2";
 const apiKey_Buscador = "AIzaSyC5bXECu47Zp7_FqDDPNrkg53PfRvDMelQ";
 let objetoPelicula = {};
+let videoId;
 
 window.addEventListener("load", cargarTrailer => {
     let pelicula = localStorage.getItem("busqueda");
 
     if (pelicula.length > 0) {
-        console.log("hay algo");
-
         try {
             fetch(`http://www.omdbapi.com/?t=${pelicula}&plot=full&apikey=${apiKey}`)
             .then (datos => {
@@ -32,6 +31,19 @@ window.addEventListener("load", cargarTrailer => {
 
                     return nombreCompleto;
                 }
+            }).then (nombrePelicula => {
+                fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey_Buscador}&q=${nombrePelicula}+trailer&type=video&part=snippet`)
+                .then (datosBusadorYT => {
+                    let obejetoBuscadorYT = datosBusadorYT.json();
+
+                    return obejetoBuscadorYT;
+                }).then (idVideo => {
+                    videoId = idVideo.items[0].id.videoId;
+
+                    console.log(videoId);
+
+                    onYouTubeIframeAPIReady (videoId);
+                })
             })
         } catch (error) {
             console.log("Hubo un arror");
@@ -41,14 +53,14 @@ window.addEventListener("load", cargarTrailer => {
 
 let video;
 
-function onYouTubeIframeAPIReady () {
+function onYouTubeIframeAPIReady (id) {
     video = new YT.Player("video", {
         width: '100%',
-        videoId: 'M7lc1UVf-VE',
+        videoId: `${id}`,
         playerVars: {
             playsinline:1,
             autoplay:1,
-            controls:0
+            controls:1,
         },
         events: {
             onReady:onPlayerReady,
