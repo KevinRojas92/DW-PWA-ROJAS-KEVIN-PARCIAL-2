@@ -42,7 +42,7 @@ window.addEventListener("load", cargarTrailer => {
 
                     console.log(videoId);
 
-                    onYouTubeIframeAPIReady (videoId);
+                    this.onYouTubeIframeAPIReady (videoId);
                 })
             })
         } catch (error) {
@@ -54,6 +54,7 @@ window.addEventListener("load", cargarTrailer => {
 let video;
 
 function onYouTubeIframeAPIReady (id) {
+   if (id) {
     video = new YT.Player("video", {
         width: '100%',
         videoId: `${id}`,
@@ -67,6 +68,7 @@ function onYouTubeIframeAPIReady (id) {
             onStateChange:onPlayerStateChange
         }
     });
+   }
 }
 
 function onPlayerReady (event) {
