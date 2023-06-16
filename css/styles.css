@@ -82,7 +82,6 @@ img {
     width: auto;
     height: 100%;
     border-radius: 10px;
-    background-color: red;
 }
 
 @supports(object-fit: cover){
