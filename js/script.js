@@ -22,13 +22,21 @@ window.addEventListener("load", pelisRandom => {
 
             let ul = document.getElementById("listaPelis");
             arrPleis.forEach(element => {
-                ul.innerHTML += `<li><a href="views/detalle.html"><img src="${element.primaryImage.url}" alt="${element.primaryImage.caption.plainText}"></a></li>`;
+                ul.innerHTML += `<li><a onclick="irAlDetalle('${element.titleText.text}')"><img src="${element.primaryImage.url}" alt="${element.primaryImage.caption.plainText}"></a></li>`;
             });
         })
     } catch (error) {
         console.error(error);
     }
 });
+
+function irAlDetalle (titulo) {
+    console.log(titulo);
+
+    localStorage.setItem("busqueda", `${titulo}`);
+
+    window.location.href = "views/detalle.html";
+}
 
 let buscador = document.getElementById("buscador");
 
