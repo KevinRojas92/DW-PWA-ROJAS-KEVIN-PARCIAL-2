@@ -1,6 +1,6 @@
 'use strict';
 
-const url = 'https://moviesdatabase.p.rapidapi.com/titles/random?limit=5&list=most_pop_movies';
+const url = 'https://moviesdatabase.p.rapidapi.com/titles/random?limit=24&list=most_pop_movies';
 const options = {
     method: 'GET',
 	headers: {
@@ -8,14 +8,27 @@ const options = {
 		'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
 	}
 };
+let arrPleis;
 
-try {
-    const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-    console.error(error);
-}
+window.addEventListener("load", pelisRandom => {
+    try {
+        fetch(url, options)
+        .then (result => {
+            return result.json();
+        }).then (json => {
+            arrPleis = json.results;
+
+            console.log(arrPleis);
+
+            let ul = document.getElementById("listaPelis");
+            arrPleis.forEach(element => {
+                ul.innerHTML += `<li><a href="views/detalle.html"><img src="${element.primaryImage.url}" alt="${element.primaryImage.caption.plainText}"></a></li>`;
+            });
+        })
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 let buscador = document.getElementById("buscador");
 
