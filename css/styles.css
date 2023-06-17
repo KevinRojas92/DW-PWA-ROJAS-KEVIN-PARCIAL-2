@@ -59,6 +59,23 @@ main {
     padding-bottom: 230px;
 }
 
+main div {
+    width: 30%;
+    height: 80px;
+    border-radius: 20px 0 0 20px;
+    text-align: center;
+    padding-top: 33px;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    top: 130px;
+    right: 0;
+}
+
+#statusConexion p {
+    font-size: 1.3rem;
+}
+
 ul {
     width: 88%;
     margin: auto;
