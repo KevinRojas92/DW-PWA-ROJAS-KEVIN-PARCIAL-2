@@ -56,7 +56,7 @@ form input::placeholder {
 
 main {
     margin-top: 50px;
-    padding-bottom: calc(50px + 50px);
+    padding-bottom: 230px;
 }
 
 ul {
@@ -76,6 +76,7 @@ a {
     display: inline-block;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 img {
@@ -93,6 +94,10 @@ img {
 }
 
 @media screen and (min-width: 441px) {
+    main {
+        padding-bottom: 130px;
+    }
+
     ul {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -122,6 +127,10 @@ img {
         margin-top: 0;
     }
 
+    main {
+        padding-bottom: 150px;
+    }
+
     ul {
         grid-template-columns: repeat(4, 1fr);
         row-gap: 1%;
@@ -131,6 +140,10 @@ img {
 @media screen and (min-width: 1280px) {
     form {
         width: 500px;
+    }
+
+    main {
+        padding-bottom: 100px;
     }
     
     ul {
