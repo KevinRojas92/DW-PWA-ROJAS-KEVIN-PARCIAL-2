@@ -20,4 +20,3 @@ window.addEventListener("online", checStatus => {
 if (!navigator.onLine) {
     console.log("El usuario está sin conexión");
 }
-
