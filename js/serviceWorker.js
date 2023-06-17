@@ -1,6 +1,6 @@
-const CACHE_NAME = "version1";
+const CACHE_NAME = 'version1';
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-sw.js");
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-sw.js');
 
 self.addEventListener("message", event => {
     if (event.data && event.data.type == "SKIP_WAITING") {
@@ -9,8 +9,8 @@ self.addEventListener("message", event => {
 });
 
 workbox.routing.registerRoute(
-    new RegExp("/*"),
-    new workbox.strategies.staleWhileRevalidate({
+    new RegExp('/*'),
+    new workbox.strategies.StaleWhileRevalidate({
         cacheName: CACHE_NAME
     })
 );
