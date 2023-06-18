@@ -8,6 +8,7 @@ const options = {
 		'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
 	}
 };
+
 let arrPleis;
 
 window.addEventListener("load", pelisRandom => {
