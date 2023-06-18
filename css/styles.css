@@ -82,7 +82,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2%;
-    row-gap: 0.5%;
+    row-gap: 0.2%;
 }
 
 li {
@@ -117,6 +117,7 @@ img {
 
     ul {
         grid-template-columns: repeat(3, 1fr);
+        row-gap: 0.5%;
     }
 }
 
@@ -175,6 +176,6 @@ img {
         width: 95%;
         grid-template-columns: repeat(8, 1fr);
         column-gap: 1%;
-        row-gap: 3%;
+        row-gap: 1.5%;
     }
 }
