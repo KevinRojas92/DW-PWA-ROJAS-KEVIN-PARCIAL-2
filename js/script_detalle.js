@@ -1,6 +1,6 @@
 'use strict';
 
-//http://www.omdbapi.com/?t=thor&apikey=6fe29fd2
+//https://www.omdbapi.com/?t=thor&apikey=6fe29fd2
 
 const apiKey = "6fe29fd2";
 let objetoPelicula = {};
