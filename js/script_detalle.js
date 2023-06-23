@@ -10,7 +10,7 @@ window.addEventListener("load", cargarPelicula => {
 
     if (pelicula.length > 0) {
         try {
-            fetch(`http://www.omdbapi.com/?t=${pelicula}&plot=full&apikey=${apiKey}`)
+            fetch(`https://www.omdbapi.com/?t=${pelicula}&plot=full&apikey=${apiKey}`)
             .then (datos => {
                 objetoPelicula = datos.json();
 
